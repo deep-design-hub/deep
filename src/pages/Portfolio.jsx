@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -10,7 +10,35 @@ import { usePageSEO, breadcrumbJsonLd } from "../seo";
 import "../detail.css";
 import "../work.css";
 
+const CATS = ["All", "Web", "Graphics", "UI/UX", "App", "Brand", "Marketing/Management", "Video/Motion", "Other"];
+const SUBS = {
+  All: [],
+  Web: ["Portfolio", "Ecommerce", "Blog", "Business", "Landing", "Site Update/Redesign", "Domain & Hosting", "Web App", "SaaS"],
+  Graphics: ["Logos", "Flyers/Posters", "Badges", "Social Kits", "Packaging/Labels", "Brand Graphics"],
+  "UI/UX": ["Wireframes", "Prototypes", "Design Systems"],
+  App: ["Mobile", "Cross-platform", "API/UI"],
+  Brand: ["Identity", "Brand Guidelines", "Tone"],
+  "Marketing/Management": ["Social", "SEO/Content", "Email"],
+  "Video/Motion": ["Reels", "Explainers", "Logo Animation"],
+  Other: ["Consultation", "Audit"]
+};
+
 export default function Portfolio() {
+  const [filtersOpen, setFiltersOpen] = useState(false);
+  const [cat, setCat] = useState("All");
+  const [sub, setSub] = useState("All");
+  const [search, setSearch] = useState("");
+  const [saleOnly, setSaleOnly] = useState(false);
+
+  useEffect(() => {
+    const onEsc = (e) => e.key === "Escape" && setFiltersOpen(false);
+    document.addEventListener("keydown", onEsc);
+    return () => document.removeEventListener("keydown", onEsc);
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = filtersOpen ? "hidden" : "";
+  }, [filtersOpen]);
   usePageSEO({
     title: "Deep Design Dev: Projects — websites, apps, branding & design work",
     description:
