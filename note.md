@@ -11,4 +11,4 @@ and so on will be on the namechape so the platform will be cummunicating with th
 
 for now we will be using both localhost and the namechape, anyone thats available will be used but the namecheap link will be top priority
 namecheap link is 
-for the localhose api/ so i will upload the content of the api to the namecheap when we are done
+for the localhose api/ so i will upload the content of the api to the namecheap when we are done create everything needed from the database in mysql, uploading everything in data/ to the database and using them please and one you are done the data/ files will now the responsible for calling these datas for each file
