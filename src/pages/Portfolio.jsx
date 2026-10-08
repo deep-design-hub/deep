@@ -158,8 +158,8 @@ export default function Portfolio() {
                       arrow_outward
                     </span>
                   </button>
-                  <Link to="/gallery" className="nh-btn nh-btn--outline">
-                    Browse the gallery
+                  <Link to="/projects" className="nh-btn nh-btn--outline">
+                    Browse the work
                   </Link>
                 </div>
               </div>
