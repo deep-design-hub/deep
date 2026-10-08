@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -8,6 +8,7 @@ import { openRequestPanel } from "../data/requestPanel";
 import { listPublished, isForSale } from "../data/projects";
 import { usePageSEO, breadcrumbJsonLd } from "../seo";
 import "../detail.css";
+import "../work.css";
 
 export default function Portfolio() {
   usePageSEO({
