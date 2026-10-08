@@ -9,6 +9,7 @@ import { Link, NavLink, Navigate, Outlet, useLocation, useNavigate } from "react
 import { useAuth } from "../../auth";
 import { countNewRequests } from "../../data/requests";
 import { ordersFor } from "../../data/orders";
+import { openRequestPanel } from "../../data/requestPanel";
 import "../../auth.css";
 import "../../dash.css";
 import "../../admin.css";
