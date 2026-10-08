@@ -1,0 +1,356 @@
+/* ========== BASE / VARIABLES ========== */
+
+        @import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap');
+
+        :root {
+            --pure-black: #000000;
+            --pure-white: #ffffff;
+            --gray-100: #f5f5f5;
+            --gray-200: #e5e5e5;
+            --gray-300: #d4d4d4;
+            --gray-400: #a3a3a3;
+            --gray-500: #737373;
+            --gray-600: #525252;
+            --gray-700: #333333;
+            --gray-800: #1a1a1a;
+            --gray-900: #0d0d0d;
+            --nh-accent: #00e676;
+            --header-height: 76px;
+            --transition-smooth: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1.2);
+            --transition-bounce: 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            --font-main: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        html {
+            background-color: var(--pure-black);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--pure-white);
+            margin: 0;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+/* ========== FOOTER ========== */
+        /* ========== FOOTER ========== */
+        .main-footer {
+            background-color: var(--pure-black);
+            color: var(--pure-white);
+            padding: 80px 36px 40px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            opacity: 0;
+        }
+
+        /* Only animate in once the page has actually loaded (body.is-loaded
+           is set by headerRuntime when the loader clears) */
+        body.is-loaded .main-footer {
+            animation: footerFadeIn 0.8s ease forwards;
+        }
+
+        @keyframes footerFadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 50px;
+        }
+
+        @media (max-width: 992px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 36px;
+            }
+            .main-footer {
+                padding: 60px 24px 32px;
+            }
+            .footer-social {
+                flex-wrap: wrap;
+                gap: 12px;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 14px;
+                margin-top: 44px;
+            }
+            .footer-bottom-links {
+                flex-wrap: wrap;
+                gap: 16px;
+            }
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .footer-logo img {
+            height: 38px;
+            width: auto;
+            filter: brightness(0) invert(1);
+            transition: opacity 0.3s;
+        }
+
+        .footer-logo img:hover {
+            opacity: 0.8;
+        }
+
+        .footer-description {
+            color: var(--gray-400);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            max-width: 320px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 14px;
+            margin-top: 4px;
+        }
+
+        .social-link {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            border: 1.5px solid rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--pure-white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+
+        .social-link:hover {
+            background: var(--nh-accent);
+            color: var(--pure-white);
+            border-color: var(--nh-accent);
+            transform: translateY(-3px);
+            box-shadow: none;
+        }
+
+        .social-link:focus-visible {
+            outline: 2px solid var(--nh-accent);
+            outline-offset: 2px;
+        }
+
+        .footer-column h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: var(--pure-white);
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-column h4::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 24px;
+            height: 2px;
+            background: var(--nh-accent);
+            border-radius: 1px;
+        }
+
+        .footer-links {
+            list-style: none;
+            /* Bootstrap reboot sets `ol, ul { padding-left: 2rem }`, which beats
+               the `* { padding: 0 }` reset on specificity. Reset it here. */
+            padding-left: 0;
+            padding-inline-start: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: var(--gray-400);
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0;
+            padding: 0;
+            background-image: linear-gradient(var(--nh-accent), var(--nh-accent));
+            background-repeat: no-repeat;
+            background-position: 0 100%;
+            background-size: 0% 2px;
+            transition: background-size 0.32s ease, color 0.25s ease, transform 0.25s ease;
+        }
+
+        /* green underline only — no background fill */
+        .footer-links a:hover {
+            color: var(--pure-white);
+            background-size: 100% 2px;
+            transform: translateX(4px);
+        }
+
+        .footer-links a:focus-visible {
+            outline: 2px solid var(--nh-accent);
+            outline-offset: 3px;
+            border-radius: 3px;
+        }
+
+        /* hidden arrow must not reserve any width, or the label looks indented */
+        .footer-links a .material-symbols-rounded {
+            font-size: 0.9rem;
+            width: 0;
+            max-width: 0;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateX(-6px);
+            transition: max-width 0.25s ease, width 0.25s ease,
+                        margin 0.25s ease, opacity 0.25s ease, transform 0.25s ease;
+            color: var(--nh-accent);
+        }
+
+        .footer-links a:hover .material-symbols-rounded {
+            width: 1em;
+            max-width: 1em;
+            margin-right: 6px;
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .footer-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            color: var(--gray-400);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            text-decoration: none;
+            background-image: linear-gradient(var(--nh-accent), var(--nh-accent));
+            background-repeat: no-repeat;
+            background-position: 0 100%;
+            background-size: 0% 2px;
+            transition: background-size 0.32s ease, color 0.25s ease;
+        }
+
+        .contact-item:hover {
+            color: var(--pure-white);
+            background-size: 100% 2px;
+        }
+
+        .contact-item .material-symbols-rounded {
+            font-size: 1.2rem;
+            margin-top: 2px;
+            color: var(--gray-500);
+            transition: color 0.25s;
+        }
+
+        .contact-item:hover .material-symbols-rounded {
+            color: var(--nh-accent);
+        }
+
+        .footer-bottom {
+            margin-top: 60px;
+            padding-top: 28px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            color: var(--gray-500);
+            font-size: 0.8rem;
+        }
+
+        .footer-bottom a {
+            color: var(--gray-400);
+            text-decoration: none;
+            transition: color 0.25s;
+        }
+
+        .footer-bottom a:hover {
+            color: var(--pure-white);
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-6px); }
+            50% { transform: translateX(6px); }
+            75% { transform: translateX(-4px); }
+        }
+
+
+/* ========== WHATSAPP FLOAT ========== */
+        /* ========== WHATSAPP FLOAT ========== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 900;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6);
+        }
+
+        .whatsapp-pulse {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: #25D366;
+            animation: whatsappPulse 2s ease-out infinite;
+            z-index: -1;
+        }
+
+        @keyframes whatsappPulse {
+            0% { transform: scale(1); opacity: 0.6; }
+            100% { transform: scale(1.6); opacity: 0; }
+        }

@@ -1,0 +1,3 @@
+/* Netlify SPA fallback: any route serves the app, React Router
+   then renders the page (or the 404 page). */
+/*    /index.html   200

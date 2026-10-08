@@ -1,0 +1,347 @@
+/* =========================================================
+   THINGS I'VE BUILT — program case studies
+   ========================================================= */
+.nh-programs {
+    display: grid;
+    gap: 28px;
+    margin-top: 56px;
+}
+
+.nh-program {
+    display: grid;
+    grid-template-columns: 1.08fr 1fr;
+    background: #fff;
+    border: 1px solid rgba(10, 10, 10, 0.1);
+    border-radius: 28px;
+    overflow: hidden;
+}
+
+.nh-program--flip .nh-program__media { order: 2; }
+
+.nh-program__media {
+    display: flex;
+    flex-direction: column;
+    background: var(--gray-100, #f5f5f5);
+    min-height: 380px;
+    position: relative;
+}
+
+.nh-program__hero {
+    position: relative;
+    margin: 0;
+    overflow: hidden;
+    aspect-ratio: 3 / 2;
+    flex: 0 0 auto;
+}
+
+.nh-program__hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nh-program__index {
+    margin-top: auto;
+    align-self: flex-end;
+    padding: 0 30px 22px;
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 800;
+    letter-spacing: -0.06em;
+    line-height: 0.8;
+    color: rgba(10, 10, 10, 0.11);
+    user-select: none;
+}
+
+.nh-program:hover .nh-program__hero img { transform: scale(1.04); }
+
+.nh-program__herocap {
+    position: absolute;
+    left: 18px;
+    bottom: 18px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 15px;
+    border-radius: 999px;
+    background: rgba(10, 10, 10, 0.74);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    color: #fff;
+    font-size: 0.78rem;
+    font-weight: 500;
+}
+
+.nh-program__herocap .material-symbols-rounded {
+    font-size: 16px;
+    color: var(--nh-accent, #00e676);
+}
+
+.nh-program__strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    padding: 12px;
+}
+
+.nh-program__shot {
+    position: relative;
+    margin: 0;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #fff;
+    cursor: zoom-in;
+}
+
+.nh-program__shot img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    display: block;
+}
+
+.nh-program__shot figcaption {
+    position: absolute;
+    inset: auto 0 0 0;
+    padding: 18px 9px 7px;
+    background: linear-gradient(transparent, rgba(10, 10, 10, 0.85));
+    color: #fff;
+    font-size: 0.68rem;
+    line-height: 1.25;
+}
+
+.nh-program__body {
+    padding: 44px 44px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.nh-program__title {
+    font-size: clamp(1.9rem, 3vw, 2.6rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    margin: 2px 0 0;
+}
+
+.nh-program__def {
+    margin: 0;
+    color: var(--gray-700, #333);
+    font-size: 1rem;
+    line-height: 1.65;
+}
+
+.nh-program__covered {
+    margin: 0;
+    color: var(--gray-600, #525252);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.nh-program__covered b { font-weight: 700; color: var(--gray-800, #1a1a1a); }
+
+.nh-program__scope {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 0;
+    margin: 3px 0 0;
+}
+
+.nh-program__scope li {
+    padding: 7px 13px;
+    border-radius: 999px;
+    font-size: 0.76rem;
+    font-weight: 600;
+    background: rgba(10, 10, 10, 0.05);
+    border: 1px solid rgba(10, 10, 10, 0.09);
+    color: var(--gray-700, #333);
+}
+
+.nh-program__facts {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 26px;
+    margin: 10px 0 0;
+    width: 100%;
+    padding-top: 18px;
+    border-top: 1px solid rgba(10, 10, 10, 0.09);
+}
+
+.nh-program__facts div { display: grid; gap: 3px; }
+
+.nh-program__facts dt {
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--gray-500, #666);
+}
+
+.nh-program__facts dd {
+    margin: 0;
+    font-size: 0.92rem;
+    font-weight: 600;
+}
+
+.nh-program__btn { margin-top: auto; }
+
+/* =========================================================
+   CONTACT PAGE
+   ========================================================= */
+.nh-contact {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 56px;
+    margin-top: 56px;
+    align-items: start;
+}
+
+.nh-contact__card {
+    background: #fff;
+    border: 1px solid rgba(10, 10, 10, 0.1);
+    border-radius: 28px;
+    padding: 38px;
+}
+
+.nh-form { display: grid; gap: 18px; }
+
+.nh-form__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.nh-field { display: grid; gap: 8px; }
+
+.nh-field label {
+    font-size: 0.76rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--gray-600, #525252);
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.nh-field label .material-symbols-rounded { font-size: 16px; color: var(--nh-accent, #00e676); }
+
+.nh-field input,
+.nh-field select,
+.nh-field textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 14px;
+    border: 1px solid rgba(10, 10, 10, 0.14);
+    background: var(--gray-100, #f7f7f5);
+    font: inherit;
+    font-size: 0.95rem;
+    color: inherit;
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.nh-field textarea { min-height: 132px; resize: vertical; }
+
+.nh-field input:focus,
+.nh-field select:focus,
+.nh-field textarea:focus {
+    outline: none;
+    border-color: rgba(10, 10, 10, 0.45);
+    background: #fff;
+}
+
+.nh-contact__aside { display: grid; gap: 16px; }
+
+.nh-contact__item {
+    display: grid;
+    gap: 5px;
+    padding: 22px 24px;
+    border: 1px solid rgba(10, 10, 10, 0.1);
+    border-radius: 20px;
+    background: #fff;
+}
+
+.nh-contact__item b {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--gray-500, #666);
+    font-weight: 600;
+}
+
+.nh-contact__item a,
+.nh-contact__item span {
+    font-size: 1.02rem;
+    font-weight: 600;
+    color: inherit;
+    text-decoration: none;
+    word-break: break-word;
+}
+
+.nh-contact__item a:hover { text-decoration: underline; }
+
+.nh-contact__socials { display: flex; flex-wrap: wrap; gap: 10px; }
+
+.nh-contact__socials a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 16px;
+    border-radius: 999px;
+    border: 1px solid rgba(10, 10, 10, 0.14);
+    font-size: 0.86rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.nh-contact__socials a:hover { background: rgba(10, 10, 10, 0.05); border-color: rgba(10, 10, 10, 0.3); }
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 992px) {
+    .nh-program { grid-template-columns: 1fr; }
+    .nh-program--flip .nh-program__media { order: 0; }
+    .nh-program__media { min-height: 0; }
+    .nh-program__body { padding: 32px 26px 30px; }
+    .nh-contact { grid-template-columns: 1fr; gap: 32px; }
+}
+
+@media (max-width: 640px) {
+    .nh-programs { gap: 20px; }
+    .nh-program__facts { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .nh-program__strip { grid-template-columns: repeat(2, 1fr); }
+    .nh-program__body { padding: 26px 20px 26px; }
+    .nh-form__row { grid-template-columns: 1fr; }
+    .nh-contact__card { padding: 24px 20px; }
+}
+
+/* =========================================================
+   Shared page primitives used by Contact
+   ========================================================= */
+.nh-section { padding: 96px 0; }
+
+.nh-h3 {
+    font-size: clamp(1.5rem, 2.4vw, 2rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+}
+
+
+/* =========================================================
+   CONTRAST: dark CTA card + form labels
+   ========================================================= */
+.nh-cta__card .nh-tag { color: #ececec; background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.18); }
+
+.nh-cta__card .nh-tag .material-symbols-rounded { color: var(--nh-accent, #00e676); }
+
+.nh-field label .material-symbols-rounded { color: var(--nh-accent-ink, #007a3d); }
+
+.nh-contact__item b { color: var(--gray-500, #737373); }

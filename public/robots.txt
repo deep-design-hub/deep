@@ -1,0 +1,25 @@
+# Deep Design Hubs — robots.txt
+User-agent: *
+Allow: /
+
+# AI crawlers
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+# Sitemaps
+Sitemap: https://deep-design.netlify.app/sitemap.xml
