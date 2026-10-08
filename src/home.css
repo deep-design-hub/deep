@@ -1172,11 +1172,11 @@ figure { margin: 0; }
    20. RESPONSIVE
    ============================================================================ */
 @media (max-width: 992px) {
-    /* tablet + below: tighter hero title (max 4rem) */
-    .nh-hero__title { font-size: clamp(2.7rem, 4.6vw, 4rem); }
-    .nh-stack__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .nh-bento__card--strip { flex-wrap: wrap; }
-    .nh-bento__strip + .nh-bento__strip { border-left: 0; padding-left: 0; }
+    .nh-hero__inner { grid-template-columns: 1fr; gap: 40px; }
+    .nh-portrait { order: -1; max-width: 380px; justify-self: center; }
+    .nh-hero__copy { text-align: center; display: grid; justify-items: center; }
+    .nh-hero__title { font-size: clamp(2.5rem, 6.2vw, 3.6rem); }
+    .nh-hero__lead { max-width: 42ch; }
 }
 
 @media (max-width: 992px) {
@@ -1206,6 +1206,9 @@ figure { margin: 0; }
 }
 
 @media (max-width: 640px) {
+    .nh-hero__title { font-size: clamp(2.4rem, 7.2vw, 3.2rem); }
+    .nh-hero__inner { gap: 32px; padding-top: 64px; }
+    .nh-portrait { margin-top: 8px; }
     .nh-bento { grid-template-columns: 1fr; }
     .nh-bento__card--feature, .nh-bento__card--strip { grid-column: span 1; }
     .nh-steps { grid-template-columns: 1fr; gap: 32px; }
