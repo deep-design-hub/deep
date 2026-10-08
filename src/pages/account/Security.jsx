@@ -35,7 +35,7 @@ export default function Security() {
 
   usePageSEO({
     noindex: true,
-    title: "Deep Design Hubs: Security",
+    title: "Deep Design Dev: Security",
     description: "Change your password, review sign-in alerts, active sessions and export your data.",
     keywords: "deep design hubs security, change password, sessions",
     path: "/account/security",

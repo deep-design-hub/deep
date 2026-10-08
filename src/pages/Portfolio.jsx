@@ -4,34 +4,36 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Stars } from "../components/Stars";
 import PageStamp from "../components/PageStamp";
+import { openRequestPanel } from "../data/requestPanel";
 import { listPublished, isForSale } from "../data/projects";
 import { usePageSEO, breadcrumbJsonLd } from "../seo";
 import "../detail.css";
 
 export default function Portfolio() {
   usePageSEO({
-    title: "Deep Design Hubs: Portfolio — websites, apps, branding & design projects",
+    title: "Deep Design Dev: Projects — websites, apps, branding & design work",
     description:
-      "The Deep Design Hubs portfolio: every website, web app, brand identity and graphic design project delivered by Abubakar Musa — outcomes, tools, client ratings and full case studies. Some builds are packaged for sale with instant download.",
+      "The Deep Design Dev projects: every website, web app, brand identity and graphic design project delivered by Abubakar Musa — outcomes, tools, client ratings and full case studies. Some builds are packaged for sale with instant download.",
     keywords:
-      "deep design hubs portfolio, web development projects, graphic design work, ui ux portfolio, brand identity portfolio, freelance designer pakistan, abubakar musa",
-    path: "/portfolio",
+      "deep design dev projects, web development projects, graphic design work, ui ux portfolio, brand identity projects, freelance designer pakistan, abubakar musa",
+    path: "/projects",
+    image: (listPublished()[0] || {}).cover || "/assets/imgs/logo/meta.png",
     jsonLd: [
       breadcrumbJsonLd([
         { name: "Home", path: "/" },
-        { name: "Portfolio", path: "/portfolio" }
+        { name: "Projects", path: "/projects" }
       ]),
       {
         "@context": "https://schema.org",
         "@type": "ProfilePage",
-        name: "Deep Design Hubs Portfolio",
+        name: "Deep Design Dev Projects",
         description: "Selected client and product work by Abubakar Musa, designer and developer.",
-        url: "https://deep-design.netlify.app/portfolio",
+        url: "https://deep-design.netlify.app/projects",
         mainEntity: {
           "@type": "Person",
           name: "Abubakar Musa",
           jobTitle: "Designer & Developer",
-          worksFor: { "@type": "Organization", name: "Deep Design Hubs" }
+          worksFor: { "@type": "Organization", name: "Deep Design Dev" }
         }
       }
     ]
@@ -49,7 +51,7 @@ export default function Portfolio() {
                   <span className="material-symbols-rounded" aria-hidden="true">
                     dashboard
                   </span>
-                  Portfolio
+                  Projects
                 </span>
                 <h1 className="nh-h2" style={{ marginTop: "20px" }}>
                   Projects with
@@ -62,7 +64,7 @@ export default function Portfolio() {
                   images, the rating and the reviews.
                 </p>
               </div>
-              <PageStamp text="Portfolio · Shipped work · Case studies · " icon="dashboard" label="Portfolio stamp" />
+              <PageStamp text="Projects · Shipped work · Case studies · " icon="dashboard" label="Projects stamp" />
             </div>
 
             <div className="nh-gal__grid nh-pf__grid">
@@ -146,12 +148,16 @@ export default function Portfolio() {
                   price within 24 hours — before any money moves.
                 </p>
                 <div className="nh-cta__actions">
-                  <Link to="/contact" className="nh-btn nh-btn--accent">
+                  <button
+                    type="button"
+                    className="nh-btn nh-btn--accent"
+                    onClick={openRequestPanel}
+                  >
                     Start a project
                     <span className="material-symbols-rounded" aria-hidden="true">
                       arrow_outward
                     </span>
-                  </Link>
+                  </button>
                   <Link to="/gallery" className="nh-btn nh-btn--outline">
                     Browse the gallery
                   </Link>

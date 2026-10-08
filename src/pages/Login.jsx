@@ -15,9 +15,9 @@ export default function Login() {
   const home = user && user.role === "admin" ? "/admin" : "/account";
 
   usePageSEO({
-    title: "Deep Design Hubs: Sign in",
+    title: "Deep Design Dev: Sign in",
     description:
-      "Sign in to your Deep Design Hubs account to track project requests, downloads and purchases in one place.",
+      "Sign in to your Deep Design Dev account to track project requests, downloads and purchases in one place.",
     keywords: "deep design hubs login, sign in, account",
     path: "/login",
     noindex: true,

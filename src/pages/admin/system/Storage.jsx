@@ -34,8 +34,8 @@ export default function SystemStorage() {
 
   usePageSEO({
     noindex: true,
-    title: "Deep Design Hubs: Storage & backup",
-    description: "Table row counts, exports and backup restore for Deep Design Hubs.",
+    title: "Deep Design Dev: Storage & backup",
+    description: "Table row counts, exports and backup restore for Deep Design Dev.",
     keywords: "deep design hubs admin storage backup"
   });
 

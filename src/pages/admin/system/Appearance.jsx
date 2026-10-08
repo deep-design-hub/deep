@@ -13,8 +13,8 @@ export default function SystemAppearance() {
 
   usePageSEO({
     noindex: true,
-    title: "Deep Design Hubs: Appearance settings",
-    description: "Accent colour, announcements and maintenance mode for Deep Design Hubs.",
+    title: "Deep Design Dev: Appearance settings",
+    description: "Accent colour, announcements and maintenance mode for Deep Design Dev.",
     keywords: "deep design hubs admin appearance settings"
   });
 

@@ -66,8 +66,8 @@ export default function ProjectEditor() {
 
   usePageSEO({
     noindex: true,
-    title: `Deep Design Hubs: ${editing ? "Edit" : "New"} project`,
-    description: "Create or edit a Deep Design Hubs project.",
+    title: `Deep Design Dev: ${editing ? "Edit" : "New"} project`,
+    description: "Create or edit a Deep Design Dev project.",
     keywords: "deep design hubs admin project editor"
   });
 

@@ -89,7 +89,7 @@ export default function AdminLayout() {
 
       <aside className={"nh-adm__side" + (menuOpen ? " is-open" : "")}>
         <Link className="nh-adm__brand" to="/admin">
-          <img src="/assets/imgs/logo/white-deep.png" alt="Deep Design Hubs" />
+          <img src="/assets/imgs/logo/white-deep.png" alt="Deep Design Dev" />
           <span className="nh-adm__brand-chip">Admin console</span>
         </Link>
 
@@ -144,7 +144,7 @@ export default function AdminLayout() {
             </span>
             <span className="nh-adm__crumb-txt">
               <b>{crumb.label}</b>
-              <small>Deep Design Hubs · Admin console</small>
+              <small>Deep Design Dev · Admin console</small>
             </span>
           </div>
 

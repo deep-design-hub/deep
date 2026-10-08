@@ -1,4 +1,4 @@
-﻿import React, { useEffect } from "react";
+﻿import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -17,16 +17,62 @@ import {
 
 
 
+const ROTATING_WORDS = [
+  "live", "convert", "grow", "shine", "sell",
+  "breathe", "move", "speak", "belong", "land"
+];
+
+function shuffle(list) {
+  const a = [...list];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+/* RotatingWord — cycles through words in a shuffled, no-repeat order;
+   when every word has been shown it reshuffles and starts again. */
+function RotatingWord() {
+  const [pool, setPool] = useState(() => shuffle(ROTATING_WORDS));
+  const [idx, setIdx] = useState(0);
+  const [showing, setShowing] = useState(true);
+
+  useEffect(() => {
+    const delay = showing ? 3400 : 380;
+    const t = setTimeout(() => {
+      if (showing) {
+        setShowing(false);
+      } else {
+        let next = idx + 1;
+        if (next >= pool.length) {
+          setPool(shuffle(ROTATING_WORDS));
+          next = 0;
+        }
+        setIdx(next);
+        setShowing(true);
+      }
+    }, delay);
+    return () => clearTimeout(t);
+  }, [showing, idx, pool]);
+
+  return (
+    <em className={"nh-roto" + (showing ? " is-on" : " is-off")} aria-live="off">
+      {pool[idx]}
+    </em>
+  );
+}
+
 export default function Home() {
   useEffect(() => mountHomeRuntime(), []);
 
   usePageSEO({
     title:
-      "Deep Design Hubs: Home — Web Development, Graphic Design, UI/UX & Branding by Abubakar Musa",
+      "Deep Design Dev: Home — Web Development, Graphic Design, UI/UX & Branding by Abubakar Musa",
     description:
-      "Deep Design Hubs is the studio of Abubakar Musa — web development, graphic design, UI/UX design, brand identity and motion graphics for businesses worldwide. See services, real projects with full case studies, prices from $480, a design gallery with reviews, and a contact form that gets a reply within 24 hours.",
+      "Deep Design Dev is the studio of Abubakar Musa — web development, graphic design, UI/UX design, brand identity and motion graphics for businesses worldwide. See services, real projects with full case studies, prices from $480, a design gallery with reviews, and a contact form that gets a reply within 24 hours.",
     keywords:
-      "Deep Design Hubs, Abubakar Musa, web development, graphic design, UI/UX design, brand identity, motion graphics, freelance web developer, freelance graphic designer, logo design, dashboard design, ecommerce website, landing page design, portfolio website, design studio, brand guidelines, packaging design, design templates for sale",
+      "Deep Design Dev, Abubakar Musa, web development, graphic design, UI/UX design, brand identity, motion graphics, freelance web developer, freelance graphic designer, logo design, dashboard design, ecommerce website, landing page design, portfolio website, design studio, brand guidelines, packaging design, design templates for sale",
     path: "/"
   });
   return (
@@ -43,9 +89,9 @@ export default function Home() {
                       <span className="nh-eyebrow__dot" aria-hidden="true"></span>
                       Independent designer &amp; developer
                   </span>
-                  <h1 className="nh-hero__title">
+<h1 className="nh-hero__title">
                       <span className="nh-line" data-split>Hi, I'm Abubakar</span>
-                      <span className="nh-line" data-split>I make brands <em>live</em></span>
+                      <span className="nh-line" data-split>I make brands <RotatingWord /></span>
                   </h1>
                   <p className="nh-hero__lead">
                       This is my one-person studio. I design identities, build websites and
@@ -73,11 +119,11 @@ export default function Home() {
               <div className="nh-portrait">
                   <span className="nh-portrait__outline" aria-hidden="true"></span>
                   <figure className="nh-portrait__frame">
-                      <img src="/assets/imgs/photo/me 3.jpg" alt="Portrait of Abubakar Musa, designer at Deep Design Hubs" loading="eager" decoding="async" id="nhHeroImg" />
+                      <img src="/assets/imgs/photo/me 3.jpg" alt="Portrait of Abubakar Musa, designer at Deep Design Dev" loading="eager" decoding="async" id="nhHeroImg" />
                       <figcaption className="nh-portrait__label">
                           <span>
                               <span className="nh-portrait__name">Abubakar Musa</span><br />
-                              <span className="nh-portrait__role">Founder, Deep Design Hubs</span>
+                              <span className="nh-portrait__role">Founder, Deep Design Dev</span>
                           </span>
                       </figcaption>
                   </figure>
@@ -137,7 +183,7 @@ export default function Home() {
                       <h2 className="nh-h2" style={{ marginTop: '20px' }}>One studio.<br /><em>Every stage</em> of the build.</h2>
                       <p className="nh-sub">
                           I'm Abubakar — the designer, the developer and the person you email.
-                          I started Deep Design Hubs so clients get one point of contact from the
+                          I started Deep Design Dev so clients get one point of contact from the
                           first sketch to the final deploy, with nothing lost in a handover.
                       </p>
                       <ul className="nh-about__list">
@@ -274,7 +320,7 @@ export default function Home() {
                       <span className="nh-tag"><span className="material-symbols-rounded" aria-hidden="true">photo_library</span>Selected work</span>
                       <h2 className="nh-h2" style={{ marginTop: '20px' }}>Things I've<br /><em>built and shipped</em></h2>
                   </div>
-                  <Link to="/portfolio" className="nh-btn nh-btn--ghost" data-nav>
+                  <Link to="/projects" className="nh-btn nh-btn--ghost" data-nav>
                       All projects
                       <span className="material-symbols-rounded" aria-hidden="true">arrow_outward</span>
                   </Link>

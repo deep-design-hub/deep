@@ -13,7 +13,7 @@ export default function SystemSeo() {
 
   usePageSEO({
     noindex: true,
-    title: "Deep Design Hubs: SEO settings",
+    title: "Deep Design Dev: SEO settings",
     description: "Default meta titles, descriptions and sitemap pinging.",
     keywords: "deep design hubs admin seo settings"
   });

@@ -17,7 +17,7 @@ import { openTable, newId, PREFIX } from "./db";
 
 const DEFAULT_SETTINGS = [
   /* general */
-  { id: "set_site_name", section: "general", key: "site_name", label: "Site name", type: "text", value: "Deep Design Hubs", hint: "Used in titles, emails and invoices." },
+  { id: "set_site_name", section: "general", key: "site_name", label: "Site name", type: "text", value: "Deep Design Dev", hint: "Used in titles, emails and invoices." },
   { id: "set_site_tagline", section: "general", key: "site_tagline", label: "Tagline", type: "text", value: "Design builds, ready to ship", hint: "Short line under the logo in emails and the footer." },
   { id: "set_contact_email", section: "general", key: "contact_email", label: "Public contact email", type: "text", value: "", hint: "Shown on the contact page and in email footers." },
   { id: "set_contact_phone", section: "general", key: "contact_phone", label: "Phone / WhatsApp", type: "text", value: "", hint: "Optional — shown next to the email." },
@@ -31,9 +31,9 @@ const DEFAULT_SETTINGS = [
   { id: "set_dark_ui", section: "appearance", key: "dark_ui", label: "Dark interface", type: "toggle", value: "off", hint: "Reserved — flips the public site to the dark palette when the theme layer lands." },
 
   /* email */
-  { id: "set_mail_from_name", section: "email", key: "mail_from_name", label: "From name", type: "text", value: "Deep Design Hubs", hint: "Sender name recipients see in their inbox." },
+  { id: "set_mail_from_name", section: "email", key: "mail_from_name", label: "From name", type: "text", value: "Deep Design Dev", hint: "Sender name recipients see in their inbox." },
   { id: "set_mail_from_email", section: "email", key: "mail_from_email", label: "From email", type: "text", value: "", hint: "Sender address (needs SMTP/DNS verification to deliver)." },
-  { id: "set_mail_prefix", section: "email", key: "mail_subject_prefix", label: "Subject prefix", type: "text", value: "[Deep Design Hubs]", hint: "Optional prefix added to every outgoing subject." },
+  { id: "set_mail_prefix", section: "email", key: "mail_subject_prefix", label: "Subject prefix", type: "text", value: "[Deep Design Dev]", hint: "Optional prefix added to every outgoing subject." },
   { id: "set_smtp_host", section: "email", key: "smtp_host", label: "SMTP host", type: "text", value: "", hint: "e.g. smtp.mailgun.org — used by the server once the backend lands." },
   { id: "set_smtp_port", section: "email", key: "smtp_port", label: "SMTP port", type: "number", value: "587", hint: "587 (TLS) is the usual choice." },
 
@@ -41,7 +41,7 @@ const DEFAULT_SETTINGS = [
   { id: "set_paystack_pk", section: "payments", key: "paystack_public_key", label: "Paystack public key", type: "text", value: "", hint: "pk_live_… or pk_test_…. Server-side secret key never belongs here." },
   { id: "set_paystack_mode", section: "payments", key: "paystack_mode", label: "Paystack mode", type: "select", value: "test", options: "test,live", hint: "test = sandbox charges, live = real money." },
   { id: "set_currency", section: "payments", key: "default_currency", label: "Default currency", type: "select", value: "USD", options: "USD,NGN,GHS,KES,ZAR", hint: "Store currency for new orders." },
-  { id: "set_bank", section: "payments", key: "bank_transfer_note", label: "Bank transfer instructions", type: "textarea", value: "Bank: GTBank · Account: Deep Design Hubs · 0123456789\nSend the transfer receipt to payments@deep-design.netlify.app with your order ref.", hint: "Shown on the buy page when bank payment is selected." },
+  { id: "set_bank", section: "payments", key: "bank_transfer_note", label: "Bank transfer instructions", type: "textarea", value: "Bank: GTBank · Account: Deep Design Dev · 0123456789\nSend the transfer receipt to payments@deep-design.netlify.app with your order ref.", hint: "Shown on the buy page when bank payment is selected." },
   { id: "set_enable_bank", section: "payments", key: "enable_bank_transfer", label: "Bank transfer option", type: "toggle", value: "on", hint: "Offer manual bank transfer alongside Paystack." },
 
   /* security */
@@ -279,7 +279,7 @@ export function importBackup(json) {
     return { ok: false, error: "That file isn't valid JSON." };
   }
   if (!parsed || typeof parsed !== "object" || typeof parsed.data !== "object" || !parsed.data) {
-    return { ok: false, error: "Not a Deep Design Hubs backup file." };
+    return { ok: false, error: "Not a Deep Design Dev backup file." };
   }
   let count = 0;
   Object.entries(parsed.data).forEach(([key, value]) => {

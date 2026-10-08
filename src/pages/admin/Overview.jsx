@@ -20,8 +20,8 @@ export default function Overview() {
 
   usePageSEO({
     noindex: true,
-    title: "Deep Design Hubs: Admin overview",
-    description: "Deep Design Hubs admin console — requests, orders, users and revenue at a glance.",
+    title: "Deep Design Dev: Admin overview",
+    description: "Deep Design Dev admin console — requests, orders, users and revenue at a glance.",
     keywords: "deep design hubs admin, dashboard"
   });
 

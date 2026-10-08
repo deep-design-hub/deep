@@ -201,8 +201,8 @@ figure { margin: 0; }
 
 .nh-hero__title {
     margin: 24px 0 0;
-    font-size: clamp(2.7rem, 6.6vw, 6rem);
-    font-weight: 800; line-height: 0.95; letter-spacing: -0.05em;
+    font-size: clamp(2.7rem, 5.6vw, 5rem);
+    font-weight: 800; line-height: 0.98; letter-spacing: -0.05em;
 }
 .nh-hero__title .nh-line { display: block; overflow: hidden; }
 .nh-hero__title .nh-word {
@@ -221,6 +221,19 @@ figure { margin: 0; }
     transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.7s;
 }
 .nh-hero.is-in .nh-hero__title em::after { transform: scaleX(1); }
+
+/* live rotating word (hero) */
+.nh-roto { min-width: 2.2em; }
+.nh-roto.is-on { animation: nh-roto-in 0.45s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.nh-roto.is-off { animation: nh-roto-out 0.3s ease both; }
+@keyframes nh-roto-in {
+    from { opacity: 0; transform: translateY(0.28em) rotate(2deg); }
+    to { opacity: 1; transform: translateY(0) rotate(0); }
+}
+@keyframes nh-roto-out {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
 
 .nh-hero__lead {
     margin: 24px 0 0; max-width: 30em;
@@ -1158,7 +1171,9 @@ figure { margin: 0; }
 /* ============================================================================
    20. RESPONSIVE
    ============================================================================ */
-@media (max-width: 1180px) {
+@media (max-width: 992px) {
+    /* tablet + below: tighter hero title (max 4rem) */
+    .nh-hero__title { font-size: clamp(2.7rem, 4.6vw, 4rem); }
     .nh-stack__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .nh-bento__card--strip { flex-wrap: wrap; }
     .nh-bento__strip + .nh-bento__strip { border-left: 0; padding-left: 0; }
@@ -1240,7 +1255,15 @@ figure { margin: 0; }
 
 @media (max-width: 640px) {
     .nh-wrap { padding: 0 20px; }
-    .nh-hero__title { font-size: clamp(2rem, 8.8vw, 2.7rem); }
+    /* phone: photos first, then the copy; breathing room above the portrait */
+    .nh-hero { padding-top: calc(var(--header-height) + 18px); padding-bottom: 72px; }
+    .nh-hero__inner { display: flex; flex-direction: column; gap: 34px; }
+    .nh-portrait { order: -1; max-width: 100%; margin-top: 0; }
+    .nh-hero__title { font-size: clamp(2.7rem, 10vw, 4rem); line-height: 1; }
+    .nh-portrait__outline { inset: 12px; }
+    .nh-spin { left: -16px; top: -30px; width: 92px; height: 92px; }
+    .nh-spin__core { inset: 26px; }
+    .nh-portrait__chip { right: -8px; bottom: 64px; padding: 11px 14px; }
     .nh-stats { grid-template-columns: 1fr; gap: 14px; }
     .nh-work__grid { columns: 1; }
     .nh-actions .nh-btn { flex: 1 1 100%; justify-content: center; }

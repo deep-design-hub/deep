@@ -33,7 +33,7 @@ export const JOURNEY = [
   },
   {
     year: "Studio",
-    title: "Deep Design Hubs",
+    title: "Deep Design Dev",
     body: "Turned the freelance workflow into a one-person studio: five services, one process, one person accountable from the first call to the final invoice."
   },
   {

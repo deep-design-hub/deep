@@ -21,8 +21,8 @@ export default function SystemCronjobs() {
 
   usePageSEO({
     noindex: true,
-    title: "Deep Design Hubs: Cronjobs",
-    description: "Scheduled background jobs for Deep Design Hubs — run, toggle, create.",
+    title: "Deep Design Dev: Cronjobs",
+    description: "Scheduled background jobs for Deep Design Dev — run, toggle, create.",
     keywords: "deep design hubs admin cronjobs"
   });
 

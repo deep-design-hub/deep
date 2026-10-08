@@ -1,7 +1,7 @@
 /*
  * emails.js — professional transactional email templates + outbox.
  *
- * Templates return { subject, preview, html } with the Deep Design Hubs
+ * Templates return { subject, preview, html } with the Deep Design Dev
  * brand (black header, white body, accent green). sendEmail() queues the
  * rendered email into the `email_log` table — when the PHP/SMTP backend
  * exists, only sendEmail() needs to become a fetch() to the mail endpoint.

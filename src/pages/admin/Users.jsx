@@ -20,8 +20,8 @@ export default function AdminUsers() {
 
   usePageSEO({
     noindex: true,
-    title: "Deep Design Hubs: Admin users",
-    description: "All registered Deep Design Hubs accounts and their activity.",
+    title: "Deep Design Dev: Admin users",
+    description: "All registered Deep Design Dev accounts and their activity.",
     keywords: "deep design hubs admin users"
   });
 

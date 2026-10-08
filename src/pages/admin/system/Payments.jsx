@@ -10,8 +10,8 @@ import "../../../auth.css";
 export default function SystemPayments() {
   usePageSEO({
     noindex: true,
-    title: "Deep Design Hubs: Payment settings",
-    description: "Paystack, currency and bank transfer configuration for Deep Design Hubs.",
+    title: "Deep Design Dev: Payment settings",
+    description: "Paystack, currency and bank transfer configuration for Deep Design Dev.",
     keywords: "deep design hubs admin payment settings"
   });
 

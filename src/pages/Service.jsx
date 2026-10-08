@@ -7,17 +7,18 @@ import "../detail.css";
 
 import { listPublishedServices, EXTRAS, FAQS } from "../data/services";
 import { SITE } from "../data/site";
+import { openRequestPanel } from "../data/requestPanel";
 import PageStamp from "../components/PageStamp";
 
 export default function Service() {
   const services = listPublishedServices();
   usePageSEO({
     title:
-      "Deep Design Hubs: Services — Web Development, Brand Identity, UI/UX, Graphic Design & Motion",
+      "Deep Design Dev: Services — Web Development, Brand Identity, UI/UX, Graphic Design & Motion",
     description:
-      "Services from Deep Design Hubs: web development from $1,200, brand identity from $480, UI/UX design from $640, graphic design from $180 and motion graphics from $360. Fixed quotes, two revision rounds, source files you own and a reply within 24 hours.",
+      "Services from Deep Design Dev: web development from $1,200, brand identity from $480, UI/UX design from $640, graphic design from $180 and motion graphics from $360. Fixed quotes, two revision rounds, source files you own and a reply within 24 hours.",
     keywords:
-      "web development services, brand identity designer, ui ux design services, graphic designer for hire, motion graphics designer, freelance web developer, logo design service, landing page design, design agency, deep design hubs services",
+      "web development services, brand identity designer, ui ux design services, graphic designer for hire, motion graphics designer, freelance web developer, logo design service, landing page design, design agency, deep design dev services",
     path: "/service",
     jsonLd: [
       breadcrumbJsonLd([
@@ -27,7 +28,7 @@ export default function Service() {
       {
         "@context": "https://schema.org",
         "@type": "ItemList",
-        name: "Deep Design Hubs services",
+        name: "Deep Design Dev services",
         itemListElement: services.map((s, i) => ({
           "@type": "ListItem",
           position: i + 1,
@@ -37,7 +38,7 @@ export default function Service() {
             description: s.intro,
             provider: {
               "@type": "Organization",
-              name: "Deep Design Hubs",
+              name: "Deep Design Dev",
               url: "https://deep-design.netlify.app/"
             },
             areaServed: "Worldwide",
@@ -87,13 +88,13 @@ export default function Service() {
               <PageStamp text="Services · Fixed quotes · 24h reply · " icon="design_services" label="Services stamp" />
             </div>
             <div className="nh-svch__actions nh-in" style={{ transitionDelay: ".12s" }}>
-              <Link to="/contact" className="nh-btn nh-btn--solid">
+              <button type="button" className="nh-btn nh-btn--solid" onClick={openRequestPanel}>
                 Get a fixed quote
                 <span className="material-symbols-rounded" aria-hidden="true">
                   arrow_outward
                 </span>
-              </Link>
-              <Link to="/gallery" className="nh-btn nh-btn--ghost">
+              </button>
+              <Link to="/projects" className="nh-btn nh-btn--ghost">
                 <span className="material-symbols-rounded" aria-hidden="true">
                   photo_library
                 </span>
@@ -159,18 +160,22 @@ export default function Service() {
                       </ul>
                     </div>
                     <div className="nh-svc__foot">
-                      <Link to="/gallery" className="nh-svc__link">
+<Link to="/projects" className="nh-svc__link">
                         {s.cta}
                         <span className="material-symbols-rounded" aria-hidden="true">
                           arrow_outward
                         </span>
                       </Link>
-                      <Link to="/contact" className="nh-svc__link nh-svc__link--quiet">
-                        Ask about {s.name.toLowerCase()}
+                      <button
+                        type="button"
+                        className="nh-svc__link nh-svc__link--quiet"
+                        onClick={openRequestPanel}
+                      >
+Ask about {s.name.toLowerCase()}
                         <span className="material-symbols-rounded" aria-hidden="true">
                           arrow_forward
                         </span>
-                      </Link>
+                      </button>
                     </div>
                   </div>
                 </article>
@@ -370,13 +375,13 @@ export default function Service() {
                   timeline and a fixed price back within 24 hours — no discovery fee,
                   no obligation.
                 </p>
-                <div className="nh-cta__actions">
-                  <Link to="/contact" className="nh-btn nh-btn--accent">
+<div className="nh-cta__actions">
+                  <button type="button" className="nh-btn nh-btn--accent" onClick={openRequestPanel}>
                     Start a project
                     <span className="material-symbols-rounded" aria-hidden="true">
                       arrow_outward
                     </span>
-                  </Link>
+                  </button>
                   <a
                     href={`mailto:${SITE.contact.email}?subject=Question%20about%20a%20service`}
                     className="nh-btn nh-btn--outline"

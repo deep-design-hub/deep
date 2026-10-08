@@ -3,11 +3,12 @@ import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { CONTACT_SOCIALS, socialIcon } from "../data/socials";
-import { submitRequest, SERVICE_LABELS, BUDGET_LABELS, TIMELINE_LABELS } from "../data/requests";
+import { submitRequest } from "../data/requests";
 import { sendEmail } from "../data/emails";
 import { currentUser } from "../data/users";
 import { useAuth } from "../auth";
 import { SITE } from "../data/site";
+import { openRequestPanel } from "../data/requestPanel";
 import PageStamp from "../components/PageStamp";
 import "../contact.css";
 
@@ -25,23 +26,19 @@ export default function Contact() {
 
     const name = String(data.get("name") || "").trim();
     const email = String(data.get("email") || "").trim();
-    const service = SERVICE_LABELS[data.get("service")] || "Other";
-    const budget = BUDGET_LABELS[data.get("budget")] || "Not sure yet";
     const company = String(data.get("company") || "").trim();
-    const timeline = TIMELINE_LABELS[data.get("timeline")] || "Flexible";
 
     let message = String(data.get("message") || "").trim();
-    message += `\n\nTimeline: ${timeline}`;
-    if (company) message += `\nCompany: ${company}`;
+    if (company) message += `\n\nCompany: ${company}`;
 
     window.setTimeout(() => {
       const user0 = currentUser();
       const row = submitRequest({
         name,
         email,
-        service,
+        service: "Contact message",
         message,
-        budget,
+        budget: "Not sure yet",
         source: "contact",
         userId: user0 ? user0.id : ""
       });
@@ -60,7 +57,7 @@ export default function Contact() {
         <section className="nh-cp">
           <div className="nh-wrap">
             <div className="nh-phead">
-              <div className="nh-phead__copy nh-cp__head nh-in">
+<div className="nh-phead__copy nh-cp__head nh-in">
                 <span className="nh-tag">
                   <span className="material-symbols-rounded" aria-hidden="true">
                     alternate_email
@@ -68,16 +65,16 @@ export default function Contact() {
                   Contact
                 </span>
                 <h1 className="nh-h2" style={{ marginTop: "20px" }}>
-                  Tell me what
+                  Talk to me
                   <br />
-                  <em>you're building</em>
+                  <em>about anything</em>
                 </h1>
                 <p className="nh-sub">
-                  Send the goal, the deadline and the vibe. You'll get a straight
-                  answer, a realistic timeline and a fixed number within 24 hours —
-                  even if the answer is "you don't need me for this".
+                  Questions, licensing, invites — this form is for direct messages.
+                  If you're briefing a design or build job, use the <b style={{ cursor: "pointer" }} onClick={openRequestPanel}>Request slide</b> instead.
+                  Either way you'll get a straight answer within 24 hours.
                 </p>
-              </div>
+                </div>
               <PageStamp text="Contact · Reply in 24h · Fixed quotes · " icon="alternate_email" label="Contact stamp" />
             </div>
 
@@ -91,7 +88,7 @@ export default function Contact() {
                   <div className="nh-cform__top">
                     <div className="nh-cform__steps">
                       <span className="nh-cform__step">
-                        <i>01</i> The brief
+                        <i>01</i> Your message
                       </span>
                       <span className="nh-cform__step">
                         <i>02</i> My reply in 24h
@@ -111,7 +108,7 @@ export default function Contact() {
                         <span className="material-symbols-rounded" aria-hidden="true">
                           person
                         </span>
-                        Name
+                        Full name
                       </label>
                       <div className="nh-if">
                         <span className="material-symbols-rounded" aria-hidden="true">
@@ -121,7 +118,7 @@ export default function Contact() {
                           id="cf-name"
                           name="name"
                           type="text"
-                          placeholder="Your name"
+                          placeholder="Your full name"
                           autoComplete="name"
                           required
                         />
@@ -150,94 +147,26 @@ export default function Contact() {
                     </div>
                   </div>
 
-                  <div className="nh-cform__row">
-                    <div className="nh-field">
-                      <label htmlFor="cf-service">
-                        <span className="material-symbols-rounded" aria-hidden="true">
-                          category
-                        </span>
-                        What do you need
-                      </label>
-                      <div className="nh-if">
-                        <span className="material-symbols-rounded" aria-hidden="true">
-                          design_services
-                        </span>
-                        <select id="cf-service" name="service" defaultValue="" required>
-                          <option value="" disabled>
-                            Choose one
-                          </option>
-                          <option value="brand">Brand identity</option>
-                          <option value="web">Website / web app</option>
-                          <option value="product">Product UI / UX</option>
-                          <option value="graphic">Graphic design</option>
-                          <option value="licensing">Licensing / template</option>
-                          <option value="other">Something else</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div className="nh-field">
-                      <label htmlFor="cf-budget">
-                        <span className="material-symbols-rounded" aria-hidden="true">
-                          payments
-                        </span>
-                        Budget
-                      </label>
-                      <div className="nh-if">
-                        <span className="material-symbols-rounded" aria-hidden="true">
-                          payments
-                        </span>
-                        <select id="cf-budget" name="budget" defaultValue="">
-                          <option value="">Not sure yet</option>
-                          <option value="small">Under $1k</option>
-                          <option value="mid">$1k – $5k</option>
-                          <option value="large">$5k+</option>
-                        </select>
-                      </div>
-                    </div>
+                  <div className="nh-field">
+                  <label htmlFor="cf-company">
+                    <span className="material-symbols-rounded" aria-hidden="true">
+                      apartment
+                    </span>
+                    Company <span style={{ textTransform: "none", letterSpacing: 0, fontWeight: 500 }}>(optional)</span>
+                  </label>
+                  <div className="nh-if">
+                    <span className="material-symbols-rounded" aria-hidden="true">
+                      business_center
+                    </span>
+                    <input
+                      id="cf-company"
+                      name="company"
+                      type="text"
+                      placeholder="Studio, startup, nobody yet"
+                      autoComplete="organization"
+                    />
                   </div>
-
-                  <div className="nh-cform__row">
-                    <div className="nh-field">
-                      <label htmlFor="cf-timeline">
-                        <span className="material-symbols-rounded" aria-hidden="true">
-                          event
-                        </span>
-                        Timeline
-                      </label>
-                      <div className="nh-if">
-                        <span className="material-symbols-rounded" aria-hidden="true">
-                          schedule
-                        </span>
-                        <select id="cf-timeline" name="timeline" defaultValue="">
-                          <option value="">Flexible</option>
-                          <option value="asap">As soon as possible</option>
-                          <option value="m1">Within a month</option>
-                          <option value="m3">1 – 3 months</option>
-                          <option value="explore">Just exploring</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div className="nh-field">
-                      <label htmlFor="cf-company">
-                        <span className="material-symbols-rounded" aria-hidden="true">
-                          apartment
-                        </span>
-                        Company <span style={{ textTransform: "none", letterSpacing: 0, fontWeight: 500 }}>(optional)</span>
-                      </label>
-                      <div className="nh-if">
-                        <span className="material-symbols-rounded" aria-hidden="true">
-                          business
-                        </span>
-                        <input
-                          id="cf-company"
-                          name="company"
-                          type="text"
-                          placeholder="Studio, startup, nobody yet"
-                          autoComplete="organization"
-                        />
-                      </div>
-                    </div>
-                  </div>
+                </div>
 
                   <div className="nh-field">
                     <label htmlFor="cf-message">
@@ -253,7 +182,7 @@ export default function Contact() {
                       <textarea
                         id="cf-message"
                         name="message"
-                        placeholder="Goal, deadline, references — whatever you already know. The more context you give me, the sharper the answer."
+                        placeholder="Your message — questions, licensing, invites, ideas. For project briefs use the Request slide instead."
                         required
                       />
                     </div>
@@ -266,7 +195,7 @@ export default function Contact() {
                   <label className="nh-check" htmlFor="cf-consent">
                     <input id="cf-consent" name="consent" type="checkbox" required />
                     <span>
-                      Keep my details for neweletters, request and listing
+                      Keep my details for newsletters, requests and listings
                     </span>
                   </label>
 
@@ -276,7 +205,7 @@ export default function Contact() {
                       type="submit"
                       disabled={state !== "idle"}
                     >
-                      {state === "sent" ? "Message sent" : state === "sending" ? "Sending…" : "Send the brief"}
+                      {state === "sent" ? "Message sent" : state === "sending" ? "Sending…" : "Send message"}
                       <span className="material-symbols-rounded" aria-hidden="true">
                         {state === "sent" ? "check_circle" : "arrow_outward"}
                       </span>
@@ -295,8 +224,7 @@ export default function Contact() {
                         task_alt
                       </span>
                       <div style={{ flex: 1, textAlign: "left" }}>
-                        <b>Brief received</b> — thanks, it landed. You'll hear back
-                        within 24 hours with next steps or a couple of questions.
+                        <b>Message received</b> — thanks, it landed. I'll read it and reply within 24 hours.
                         <div style={{ display: "inline-flex", gap: 10, alignItems: "center", margin: "12px 0 0", padding: "7px 14px", borderRadius: 999, background: "rgba(255,255,255,.07)", border: "1px dashed rgba(255,255,255,.35)", fontSize: ".78rem" }}>
                           <span>Reference</span>
                           <b style={{ fontWeight: 800, letterSpacing: ".06em" }}>{sentRow.ref}</b>
@@ -304,14 +232,13 @@ export default function Contact() {
                         <p style={{ margin: "12px 0 0", fontSize: ".84rem", opacity: .92 }}>
                           {!isLoggedIn ? (
                             <>
-                              <b>Tip:</b> create a free account to track this request —
-                              status, quotes and replies in one dashboard. Your reference
-                              stays valid either way.
+                              <b>Tip:</b> create a free account to track this message —
+                              status, notes and replies in one dashboard.
                             </>
                           ) : (
                             <>
                               It's already attached to <b>{user.name}</b>'s account — see
-                              status any time in your dashboard.
+                              the thread in your dashboard.
                             </>
                           )}
                         </p>
@@ -328,7 +255,7 @@ export default function Contact() {
                             style={{ color: "inherit", borderColor: "currentColor" }}
                             onClick={() => { setState("idle"); setSentRow(null); }}
                           >
-                            Send another brief
+                            Send another message
                           </button>
                         </div>
                       </div>
@@ -338,8 +265,8 @@ export default function Contact() {
                       <span className="material-symbols-rounded" aria-hidden="true">
                         task_alt
                       </span>
-                      Thanks — the brief landed. You'll hear back from me within 24
-                      hours with next steps or a couple of questions.
+                      Thanks — the message landed. I'll read it and reply within 24
+                      hours.
                     </div>
                   )}
                 </form>
@@ -447,12 +374,16 @@ export default function Contact() {
                   honestly whether it's a fit, what it takes and what it costs.
                 </p>
                 <div className="nh-cta__actions">
-                  <a href="#contact-form" className="nh-btn nh-btn--accent">
+                  <button
+                    type="button"
+                    className="nh-btn nh-btn--accent"
+                    onClick={openRequestPanel}
+                  >
                     Start a project
                     <span className="material-symbols-rounded" aria-hidden="true">
                       arrow_outward
                     </span>
-                  </a>
+                  </button>
                   <a
                     href={`mailto:${SITE.contact.email}?subject=Ask%20about%20licensing`}
                     className="nh-btn nh-btn--outline"

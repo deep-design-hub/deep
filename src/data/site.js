@@ -3,8 +3,8 @@
  * Header nav, footer, contact blocks, request forms and SEO all read from here.
  */
 export const SITE = {
-  name: "Deep Design Hubs",
-  legalName: "Deep Design Hubs",
+  name: "Deep Design Dev",
+  legalName: "Deep Design Dev",
   url: "https://deep-design.netlify.app",
   tagline:
     "A creative studio specializing in graphic design and web development. We craft digital experiences that elevate brands and drive results.",
@@ -22,11 +22,11 @@ export const SITE = {
   },
 
   footer: {
-    copyright: "2026 Deep Design Hubs",
+    copyright: "2026 Deep Design Dev",
     quickLinks: [
       { label: "Home", to: "/" },
       { label: "Services", to: "/service" },
-      { label: "Portfolio", to: "/portfolio" },
+      { label: "Projects", to: "/projects" },
       { label: "About", to: "/about" }
     ],
     serviceLinks: [
@@ -45,7 +45,7 @@ export const SITE = {
   nav: [
     { label: "Home", to: "/", icon: "home" },
     { label: "Service", to: "/service", icon: "design_services" },
-    { label: "Portfolio", to: "/portfolio", icon: "dashboard" },
+    { label: "Projects", to: "/projects", icon: "dashboard" },
     { label: "Contact", to: "/contact", icon: "mail" },
     { label: "About", to: "/about", icon: "person" },
     { label: "Gallery", to: "/gallery", icon: "photo_library" }
@@ -53,12 +53,12 @@ export const SITE = {
 
   /* Options offered by the request form (header panel + contact page) */
   requestServices: [
-    "Graphic Design",
-    "Web Development",
-    "UI/UX Design",
-    "Brand Identity",
-    "Motion Graphics",
-    "Other"
+    { value: "brand", label: "Brand Identity", icon: "diamond", desc: "Logos, identity systems, guidelines" },
+    { value: "web", label: "Web Development", icon: "web", desc: "Marketing sites & web applications" },
+    { value: "product", label: "UI/UX Design", icon: "devices", desc: "Apps, interfaces, design systems" },
+    { value: "graphic", label: "Graphic Design", icon: "palette", desc: "Posts, flyers, packaging, print" },
+    { value: "licensing", label: "Licensing / Template", icon: "verified_user", desc: "Buy & license a ready build" },
+    { value: "other", label: "Something Else", icon: "category", desc: "Don't see it? Tell me anyway" }
   ]
 };
 

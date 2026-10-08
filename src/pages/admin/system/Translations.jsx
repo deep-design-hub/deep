@@ -24,7 +24,7 @@ export default function SystemTranslations() {
 
   usePageSEO({
     noindex: true,
-    title: "Deep Design Hubs: Translation settings",
+    title: "Deep Design Dev: Translation settings",
     description: "Default language, enabled locales and language pack export.",
     keywords: "deep design hubs admin translations"
   });

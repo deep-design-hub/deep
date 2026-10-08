@@ -13,8 +13,8 @@ export default function Orders() {
 
   usePageSEO({
     noindex: true,
-    title: "Deep Design Hubs: My orders",
-    description: "Every template, UI kit and licence you've bought from Deep Design Hubs — refs, statuses and receipts.",
+    title: "Deep Design Dev: My orders",
+    description: "Every template, UI kit and licence you've bought from Deep Design Dev — refs, statuses and receipts.",
     keywords: "deep design hubs orders, purchases, receipts",
     path: "/account/orders",
     jsonLd: [breadcrumbJsonLd([
@@ -44,7 +44,7 @@ export default function Orders() {
           </p>
         </div>
         <div className="nh-dash__headacts">
-          <Link to="/gallery" className="nh-btn nh-btn--accent">
+          <Link to="/projects" className="nh-btn nh-btn--accent">
             <span className="material-symbols-rounded" aria-hidden="true">storefront</span>
             Browse the shop
           </Link>
@@ -54,7 +54,7 @@ export default function Orders() {
       <div className="nh-acct__panel nh-in">
         {orders.length === 0 ? (
           <p className="nh-acct__empty">
-            No orders yet. <Link to="/gallery">Browse the shop</Link> for templates
+            No orders yet. <Link to="/projects">Browse the shop</Link> for templates
             and UI kits — every purchase includes a licence and instant delivery.
           </p>
         ) : (

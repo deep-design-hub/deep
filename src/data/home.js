@@ -208,7 +208,7 @@ export const STORY = [
   {
     year: "2019",
     yearIcon: "calendar_today",
-    title: "Deep Design Hubs opens",
+    title: "Deep Design Dev opens",
     text: "I registered the name and started taking direct clients. The whole point was one point of contact — the person you brief is the person who ships, so nothing gets reinterpreted three times on the way to production.",
     tags: ["Brand identity", "Web development", "One-person studio"]
   },

@@ -1,4 +1,4 @@
-# Deep Design Hubs — robots.txt
+# Deep Design Dev — robots.txt
 User-agent: *
 Allow: /
 

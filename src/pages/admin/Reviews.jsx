@@ -22,8 +22,8 @@ export default function AdminReviews() {
 
   usePageSEO({
     noindex: true,
-    title: "Deep Design Hubs: Admin reviews",
-    description: "All client reviews and star ratings submitted on Deep Design Hubs projects.",
+    title: "Deep Design Dev: Admin reviews",
+    description: "All client reviews and star ratings submitted on Deep Design Dev projects.",
     keywords: "deep design hubs admin reviews"
   });
 

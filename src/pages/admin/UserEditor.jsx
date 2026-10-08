@@ -54,8 +54,8 @@ export default function UserEditor() {
 
   usePageSEO({
     noindex: true,
-    title: `Deep Design Hubs: ${editing ? "Edit" : "New"} account`,
-    description: "Create or edit a Deep Design Hubs account.",
+    title: `Deep Design Dev: ${editing ? "Edit" : "New"} account`,
+    description: "Create or edit a Deep Design Dev account.",
     keywords: "deep design hubs admin user editor"
   });
 

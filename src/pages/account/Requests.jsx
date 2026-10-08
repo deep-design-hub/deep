@@ -4,6 +4,7 @@
 import React, { useMemo } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../auth";
+import { openRequestPanel } from "../../data/requestPanel";
 import { requestsFor, REQUEST_STATUSES } from "../../data/requests";
 import { usePageSEO, breadcrumbJsonLd } from "../../seo";
 import "../../auth.css";
@@ -15,8 +16,8 @@ export default function Requests() {
 
   usePageSEO({
     noindex: true,
-    title: "Deep Design Hubs: My requests",
-    description: "Track every project request you've sent to Deep Design Hubs — status, quote and reference in one list.",
+    title: "Deep Design Dev: My requests",
+    description: "Track every project request you've sent to Deep Design Dev — status, quote and reference in one list.",
     keywords: "deep design hubs requests, project briefs, quotes",
     path: "/account/requests",
     jsonLd: [breadcrumbJsonLd([
@@ -43,17 +44,17 @@ export default function Requests() {
           </p>
         </div>
         <div className="nh-dash__headacts">
-          <Link to="/contact" className="nh-btn nh-btn--accent">
+          <button type="button" className="nh-btn nh-btn--accent" onClick={openRequestPanel}>
             <span className="material-symbols-rounded" aria-hidden="true">add_task</span>
             New request
-          </Link>
+          </button>
         </div>
       </div>
 
       <div className="nh-acct__panel nh-in">
         {reqs.length === 0 ? (
           <p className="nh-acct__empty">
-            Nothing here yet. <Link to="/contact">Send your first brief</Link> — you'll
+            Nothing here yet. <button type="button" className="nh-inln" onClick={openRequestPanel}>Send your first brief</button> — you'll
             get a fixed quote within 24 hours, no back-and-forth.
           </p>
         ) : (

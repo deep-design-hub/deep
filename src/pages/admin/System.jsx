@@ -21,8 +21,8 @@ export default function AdminSystem() {
 
   usePageSEO({
     noindex: true,
-    title: "Deep Design Hubs: System",
-    description: "Platform system cards: settings, cronjobs, logs, storage and more for Deep Design Hubs.",
+    title: "Deep Design Dev: System",
+    description: "Platform system cards: settings, cronjobs, logs, storage and more for Deep Design Dev.",
     keywords: "deep design hubs admin system"
   });
 

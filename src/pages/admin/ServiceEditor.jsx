@@ -44,8 +44,8 @@ export default function ServiceEditor() {
 
   usePageSEO({
     noindex: true,
-    title: `Deep Design Hubs: ${editing ? "Edit" : "New"} service`,
-    description: "Create or edit a Deep Design Hubs service.",
+    title: `Deep Design Dev: ${editing ? "Edit" : "New"} service`,
+    description: "Create or edit a Deep Design Dev service.",
     keywords: "deep design hubs admin service editor"
   });
 

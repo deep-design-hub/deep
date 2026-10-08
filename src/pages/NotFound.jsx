@@ -13,9 +13,9 @@ export default function NotFound() {
   const location = useLocation();
 
   usePageSEO({
-    title: "Deep Design Hubs: 404 — this page doesn't exist",
+    title: "Deep Design Dev: 404 — this page doesn't exist",
     description:
-      "That page may have been moved, removed, or never existed. Browse the Deep Design Hubs projects, services and gallery instead.",
+      "That page may have been moved, removed, or never existed. Browse the Deep Design Dev projects, services and gallery instead.",
     keywords: "deep design hubs 404, page not found",
     path: location.pathname,
     noindex: true
@@ -46,7 +46,7 @@ export default function NotFound() {
                   <span className="material-symbols-rounded" aria-hidden="true">home</span>
                   Back home
                 </Link>
-                <Link to="/portfolio" className="nh-btn nh-btn--solid">
+                <Link to="/projects" className="nh-btn nh-btn--solid">
                   <span className="material-symbols-rounded" aria-hidden="true">dashboard</span>
                   See projects
                 </Link>

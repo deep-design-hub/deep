@@ -28,8 +28,8 @@ export default function AdminPayments() {
 
   usePageSEO({
     noindex: true,
-    title: "Deep Design Hubs: Admin payments",
-    description: "Automated Paystack payments and manual bank transfers for Deep Design Hubs.",
+    title: "Deep Design Dev: Admin payments",
+    description: "Automated Paystack payments and manual bank transfers for Deep Design Dev.",
     keywords: "deep design hubs admin payments"
   });
 

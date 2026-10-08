@@ -10,19 +10,26 @@
     grid-template-columns: 1.18fr 0.82fr;
     gap: 34px;
     margin-top: 48px;
-    align-items: start;
+    align-items: stretch;
 }
+
+.nh-cp__grid > * { min-width: 0; }
 
 /* ---------- form card ---------- */
 .nh-cp__card {
     position: relative;
+    display: flex;
+    flex-direction: column;
     background: #fff;
     border: 1px solid rgba(10, 10, 10, 0.1);
     border-radius: 28px;
     padding: 36px 38px 34px;
     box-shadow: 0 30px 70px -46px rgba(10, 10, 10, 0.4);
     overflow: hidden;
+    height: 100%;
 }
+
+.nh-cp__card .nh-cform { flex: 1 1 auto; }
 
 .nh-cp__card::before {
     content: "";
@@ -95,7 +102,7 @@
 .nh-if > .material-symbols-rounded {
     position: absolute;
     left: 15px;
-    top: 43px;
+    top: 50%;
     transform: translateY(-50%);
     font-size: 18px;
     color: var(--gray-400);
@@ -104,7 +111,7 @@
     z-index: 1;
 }
 
-.nh-if--area > .material-symbols-rounded { top: 20px; transform: none; }
+.nh-if--area > .material-symbols-rounded { top: 19px; transform: none; }
 
 .nh-if input,
 .nh-if select,
@@ -407,7 +414,7 @@
 .nh-cp__card .nh-cform__step { background: rgba(255, 255, 255, 0.09); color: rgba(255, 255, 255, 0.72); }
 .nh-cp__card .nh-cform__step i { color: var(--nh-ink); }
 .nh-cp__card .nh-cform__secure { color: rgba(255, 255, 255, 0.6); }
-.nh-cp__card .nh-field label { color: rgba(255, 255, 255, 0.9); }
+.nh-cp__card .nh-field label { color: rgba(255, 255, 255, 0.9); gap: 10px; }
 
 .nh-cp__card .nh-if input,
 .nh-cp__card .nh-if select,
@@ -446,3 +453,25 @@
 }
 
 .nh-cp__card .nh-cform__ok .material-symbols-rounded { color: var(--nh-accent); }
+
+/* service popup trigger matches the white inputs on the black card */
+.nh-cp__card .nh-sel {
+    background: #fff;
+    border-color: rgba(255, 255, 255, 0.3);
+    color: var(--nh-ink);
+}
+.nh-cp__card .nh-sel:hover { border-color: var(--nh-accent); background: #fff; }
+.nh-cp__card .nh-sel:focus-visible {
+    border-color: var(--nh-accent);
+    box-shadow: 0 0 0 4px rgba(0, 230, 118, 0.22);
+}
+.nh-cp__card .nh-sel__car,
+.nh-cp__card .nh-sel__ic { color: var(--gray-500, #666); }
+.nh-cp__card .nh-sel.has-value .nh-sel__ic,
+.nh-cp__card .nh-sel.has-value .nh-sel__car { color: var(--nh-ink); }
+
+/* black card presence: subtle green edge + soft lift */
+.nh-cp__card:hover { box-shadow: 0 36px 90px -48px rgba(0, 0, 0, 0.9); }
+
+/* the side cards stay white for the B/W balance */
+.nh-cp__side .nh-ci { background: #fff; }

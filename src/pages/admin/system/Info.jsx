@@ -28,8 +28,8 @@ export default function SystemInfo() {
 
   usePageSEO({
     noindex: true,
-    title: "Deep Design Hubs: System info",
-    description: "Platform version, runtime and storage footprint for Deep Design Hubs.",
+    title: "Deep Design Dev: System info",
+    description: "Platform version, runtime and storage footprint for Deep Design Dev.",
     keywords: "deep design hubs admin system info"
   });
 

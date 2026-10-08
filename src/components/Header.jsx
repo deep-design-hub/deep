@@ -1,9 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../header.css";
 import mountHeaderRuntime from "../headerRuntime.js";
 import { SITE } from "../data/site";
+import { BUDGET_OPTIONS } from "../data/requests";
 import { useAuth } from "../auth";
+import ServiceModal from "./ServiceModal";
 
 function initials(name) {
   return String(name || "?")
@@ -16,15 +18,23 @@ function initials(name) {
 
 export default function Header() {
   const { isLoggedIn, user } = useAuth();
+  const [svc, setSvc] = useState("");
+  const [bgt, setBgt] = useState("");
   useEffect(() => {
     mountHeaderRuntime();
+    const f = document.getElementById("requestForm");
+    const onReset = () => { setSvc(""); setBgt(""); };
+    if (f) f.addEventListener("reset", onReset);
+    return () => {
+      if (f) f.removeEventListener("reset", onReset);
+    };
   }, []);
   return (
     <>
       <div className="loader-wrapper" id="loaderWrapper">
               <div className="loader-content">
                   <div className="loader-logo">
-                      <img src="/assets/imgs/logo/white-deep.png" alt="Deep Design Hubs logo" />
+                      <img src="/assets/imgs/logo/white-deep.png" alt="Deep Design Dev logo" />
                   </div>
                   <div className="loader-bar-wrapper">
                       <div className="loader-bar"></div>
@@ -47,7 +57,8 @@ export default function Header() {
               <div className="header-container">
                   <div className="header-logo">
                       <Link to="/" data-nav>
-                          <img src="/assets/imgs/logo/black-deep.png" alt="Deep Design Hubs logo" />
+                          <img src="/assets/imgs/logo/black-deep.png" alt="Deep Design Dev logo" />
+                          <span className="header-wordmark">Deep Design Dev</span>
                       </Link>
                   </div>
       
@@ -131,12 +142,14 @@ export default function Header() {
                   </div>
                   <div className="form-group">
                       <label><span className="material-symbols-rounded">category</span> Service type</label>
-                      <select name="service" required>
-                          <option value="" disabled>Choose a service</option>
-                          {SITE.requestServices.map((s) => (
-                            <option key={s}>{s}</option>
-                          ))}
-                      </select>
+                      <ServiceModal
+                          name="service"
+                          options={SITE.requestServices}
+                          value={svc}
+                          onChange={setSvc}
+                          placeholder="Choose a service"
+                          required
+                      />
                   </div>
                   <div className="form-group">
                       <label><span className="material-symbols-rounded">description</span> Project details</label>
@@ -144,7 +157,16 @@ export default function Header() {
                   </div>
                   <div className="form-group">
                       <label><span className="material-symbols-rounded">payments</span> Budget range</label>
-                      <input type="text" name="budget" placeholder="e.g. $1,000 – $5,000" />
+                      <ServiceModal
+                          name="budget"
+                          options={BUDGET_OPTIONS}
+                          value={bgt}
+                          onChange={setBgt}
+                          placeholder="Select a budget"
+                          title="What's the budget?"
+                          tag="Budget"
+                          emptyIcon="payments"
+                      />
                   </div>
                   <button type="submit" className="submit-request">
                       Send Request <span className="material-symbols-rounded">arrow_forward</span>

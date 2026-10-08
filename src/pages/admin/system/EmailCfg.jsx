@@ -16,7 +16,7 @@ export default function SystemEmailCfg() {
 
   usePageSEO({
     noindex: true,
-    title: "Deep Design Hubs: Email settings",
+    title: "Deep Design Dev: Email settings",
     description: "Sender identity, SMTP configuration and outbox stats.",
     keywords: "deep design hubs admin email settings"
   });

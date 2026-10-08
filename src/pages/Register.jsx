@@ -13,9 +13,9 @@ export default function Register() {
   const [busy, setBusy] = useState(false);
 
   usePageSEO({
-    title: "Deep Design Hubs: Create account",
+    title: "Deep Design Dev: Create account",
     description:
-      "Create a free Deep Design Hubs account to send project requests, buy templates and keep every receipt and licence in one place.",
+      "Create a free Deep Design Dev account to send project requests, buy templates and keep every receipt and licence in one place.",
     keywords: "deep design hubs register, create account, sign up",
     path: "/register",
     noindex: true,

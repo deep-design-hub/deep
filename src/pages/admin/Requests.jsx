@@ -25,8 +25,8 @@ export default function AdminRequests() {
 
   usePageSEO({
     noindex: true,
-    title: "Deep Design Hubs: Admin requests",
-    description: "Review and update project requests received by Deep Design Hubs.",
+    title: "Deep Design Dev: Admin requests",
+    description: "Review and update project requests received by Deep Design Dev.",
     keywords: "deep design hubs admin requests"
   });
 

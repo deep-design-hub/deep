@@ -9,8 +9,8 @@ import "../../../auth.css";
 export default function SystemGeneral() {
   usePageSEO({
     noindex: true,
-    title: "Deep Design Hubs: General settings",
-    description: "Site name, tagline and contact details for Deep Design Hubs.",
+    title: "Deep Design Dev: General settings",
+    description: "Site name, tagline and contact details for Deep Design Dev.",
     keywords: "deep design hubs admin general settings"
   });
 

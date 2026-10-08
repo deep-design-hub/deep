@@ -7,16 +7,17 @@ import "../detail.css";
 
 import { BELIEFS, JOURNEY, TOOLS } from "../data/about";
 import { SITE } from "../data/site";
+import { openRequestPanel } from "../data/requestPanel";
 
 
 export default function About() {
   usePageSEO({
     title:
-      "Deep Design Hubs: About — Abubakar Musa, designer & developer",
+      "Deep Design Dev: About — Abubakar Musa, designer & developer",
     description:
-      "Abubakar Musa is the designer and developer behind Deep Design Hubs — a one-person studio for web development, brand identity, UI/UX, graphic design and motion. 120+ projects shipped, 40+ happy clients, remote worldwide, every message answered within 24 hours.",
+      "Abubakar Musa is the designer and developer behind Deep Design Dev — a one-person studio for web development, brand identity, UI/UX, graphic design and motion. 120+ projects shipped, 40+ happy clients, remote worldwide, every message answered within 24 hours.",
     keywords:
-      "Abubakar Musa, Deep Design Hubs about, freelance designer and developer, one person design studio, web developer portfolio, graphic designer profile, ui ux designer, remote designer pakistan, about deep design hubs",
+      "Abubakar Musa, Deep Design Dev about, freelance designer and developer, one person design studio, web developer projects, graphic designer profile, ui ux designer, remote designer pakistan, about deep design dev",
     path: "/about",
     image: "/assets/imgs/logo/meta.png",
     jsonLd: [
@@ -27,7 +28,7 @@ export default function About() {
       {
         "@context": "https://schema.org",
         "@type": "AboutPage",
-        name: "About Deep Design Hubs — Abubakar Musa",
+        name: "About Deep Design Dev — Abubakar Musa",
         url: "https://deep-design.netlify.app/about",
         mainEntity: {
           "@type": "Person",
@@ -35,7 +36,7 @@ export default function About() {
           jobTitle: "Designer & Developer",
           worksFor: {
             "@type": "Organization",
-            name: "Deep Design Hubs",
+            name: "Deep Design Dev",
             url: "https://deep-design.netlify.app/"
           },
           email: SITE.contact.email,
@@ -71,17 +72,17 @@ export default function About() {
                   <em>the whole studio</em>
                 </h1>
                 <p className="nh-sub">
-                  Deep Design Hubs is my one-person studio. I design identities,
+                  Deep Design Dev is my one-person studio. I design identities,
                   build websites and package digital products — and the person you
                   brief is the person who does the work.
                 </p>
-                <div className="nh-abt__actions">
-                  <Link to="/contact" className="nh-btn nh-btn--solid">
+<div className="nh-abt__actions">
+                  <button type="button" className="nh-btn nh-btn--solid" onClick={openRequestPanel}>
                     Work with me
                     <span className="material-symbols-rounded" aria-hidden="true">
                       arrow_outward
                     </span>
-                  </Link>
+                  </button>
                   <Link to="/gallery" className="nh-btn nh-btn--ghost">
                     <span className="material-symbols-rounded" aria-hidden="true">
                       photo_library
@@ -96,12 +97,12 @@ export default function About() {
               >
                 <img
                   src="/assets/imgs/photo/me 1.jpg"
-                  alt="Abubakar Musa, designer and developer at Deep Design Hubs"
+                  alt="Abubakar Musa, designer and developer at Deep Design Dev"
                   loading="eager"
                 />
                 <figcaption>
                   <b>Abubakar Musa</b>
-                  <span>Designer &amp; developer — Deep Design Hubs</span>
+                  <span>Designer &amp; developer — Deep Design Dev</span>
                 </figcaption>
               </figure>
             </div>
@@ -154,7 +155,7 @@ export default function About() {
                   ships nobody can tell you why it looks the way it does.
                 </p>
                 <p>
-                  Deep Design Hubs doesn't work that way. I take the brief, research
+                  Deep Design Dev doesn't work that way. I take the brief, research
                   the market, draw the interface, write the code and hand you the
                   finished thing with the source files and a guide explaining how it
                   fits together. When something is wrong, one person fixes it —
@@ -296,13 +297,13 @@ export default function About() {
                   gets a real reply within 24 hours — including the ones that should
                   buy a template instead.
                 </p>
-                <div className="nh-cta__actions">
-                  <Link to="/contact" className="nh-btn nh-btn--accent">
+<div className="nh-cta__actions">
+                  <button type="button" className="nh-btn nh-btn--accent" onClick={openRequestPanel}>
                     Send a brief
                     <span className="material-symbols-rounded" aria-hidden="true">
                       arrow_outward
                     </span>
-                  </Link>
+                  </button>
                   <a
                     href={`mailto:${SITE.contact.email}`}
                     className="nh-btn nh-btn--outline"

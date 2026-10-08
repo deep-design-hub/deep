@@ -172,9 +172,26 @@
             }
         }
 
-        .header-logo {
+.header-logo {
             position: relative;
             z-index: 2;
+            display: flex;
+            align-items: center;
+        }
+
+        .header-logo a {
+            display: inline-flex;
+            align-items: center;
+            gap: 11px;
+        }
+
+        .header-wordmark {
+            color: var(--pure-white);
+            font-weight: 700;
+            font-size: 1.02rem;
+            letter-spacing: 0.1px;
+            white-space: nowrap;
+            line-height: 1;
         }
 
         .header-logo img {
@@ -275,10 +292,9 @@
             transform: rotate(5deg);
         }
 
-        .btn-request {
+.btn-request {
             background-color: var(--pure-white);
             color: var(--pure-black);
-            border: none;
             padding: 11px 24px;
             border-radius: 50px;
             font-weight: 600;
@@ -304,8 +320,9 @@
         .btn-request:hover {
             background-color: var(--pure-black);
             color: var(--pure-white);
+            border-color: var(--nh-accent);
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(255,255,255,0.15);
+            box-shadow: 0 8px 25px rgba(0, 230, 118, 0.2);
         }
 
         .btn-request:hover .btn-icon {
@@ -419,6 +436,8 @@
             .header-logo img {
                 height: 34px;
             }
+            .header-wordmark { font-size: 0.9rem; }
+            .header-logo a { gap: 8px; }
             .navbar-toggler {
                 width: 40px;
                 height: 40px;
@@ -628,12 +647,12 @@
             transform: scale(0.97);
         }
 
-        .mobile-request-btn {
+.mobile-request-btn {
             margin-top: auto;
             background: var(--pure-white);
             color: var(--pure-black);
-            border: none;
             padding: 16px 28px;
+            border: 2px solid var(--pure-white);
             border-radius: 50px;
             font-weight: 600;
             font-size: 1rem;
@@ -648,9 +667,11 @@
         }
 
         .mobile-request-btn:hover {
-            background: #e0e0e0;
+            background: var(--pure-black);
+            color: var(--pure-white);
+            border-color: var(--nh-accent);
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255,255,255,0.1);
+            box-shadow: 0 6px 20px rgba(0, 230, 118, 0.2);
         }
 
         .request-panel {
@@ -729,11 +750,11 @@
             padding-right: 40px;
         }
 
-        .submit-request {
+.submit-request {
             background-color: #fff;
             color: #000;
-            border: none;
             padding: 15px 28px;
+            border: 2px solid #fff;
             border-radius: 50px;
             font-weight: 700;
             font-size: 0.95rem;
@@ -749,9 +770,11 @@
         }
 
         .submit-request:hover {
-            background-color: #e0e0e0;
+            background-color: var(--pure-black);
+            color: var(--pure-white);
+            border-color: var(--nh-accent);
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(255,255,255,0.08);
+            box-shadow: 0 10px 30px rgba(0,230,118,0.16);
         }
 
         .submit-request:active {

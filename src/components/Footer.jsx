@@ -17,7 +17,7 @@ export default function Footer() {
                       <div className="footer-brand">
                           <div className="footer-logo">
                               <Link to="/" data-nav>
-                                  <img src="/assets/imgs/logo/black-deep.png" alt="Deep Design Hubs logo" />
+                                  <img src="/assets/imgs/logo/black-deep.png" alt="Deep Design Dev logo" />
                               </Link>
                           </div>
                           <p className="footer-description">

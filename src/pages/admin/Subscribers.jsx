@@ -19,8 +19,8 @@ export default function AdminSubscribers() {
 
   usePageSEO({
     noindex: true,
-    title: "Deep Design Hubs: Admin subscribers",
-    description: "Newsletter subscribers collected by Deep Design Hubs.",
+    title: "Deep Design Dev: Admin subscribers",
+    description: "Newsletter subscribers collected by Deep Design Dev.",
     keywords: "deep design hubs admin subscribers"
   });
 

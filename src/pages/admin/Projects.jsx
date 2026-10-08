@@ -16,8 +16,8 @@ export default function AdminProjects() {
 
   usePageSEO({
     noindex: true,
-    title: "Deep Design Hubs: Admin projects",
-    description: "Create, edit and delete Deep Design Hubs projects and case studies.",
+    title: "Deep Design Dev: Admin projects",
+    description: "Create, edit and delete Deep Design Dev projects and case studies.",
     keywords: "deep design hubs admin projects"
   });
 

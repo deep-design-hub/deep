@@ -16,8 +16,8 @@ export default function AdminServices() {
 
   usePageSEO({
     noindex: true,
-    title: "Deep Design Hubs: Admin services",
-    description: "Create, edit and delete Deep Design Hubs services.",
+    title: "Deep Design Dev: Admin services",
+    description: "Create, edit and delete Deep Design Dev services.",
     keywords: "deep design hubs admin services"
   });
 

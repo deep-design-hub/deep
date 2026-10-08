@@ -15,8 +15,8 @@ export default function AdminEmails() {
 
   usePageSEO({
     noindex: true,
-    title: "Deep Design Hubs: Admin email outbox",
-    description: "Every transactional email queued by Deep Design Hubs — welcome, receipts, quotes.",
+    title: "Deep Design Dev: Admin email outbox",
+    description: "Every transactional email queued by Deep Design Dev — welcome, receipts, quotes.",
     keywords: "deep design hubs admin emails"
   });
 

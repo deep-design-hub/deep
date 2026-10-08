@@ -33,8 +33,8 @@ export default function SystemLogs() {
 
   usePageSEO({
     noindex: true,
-    title: "Deep Design Hubs: System logs",
-    description: "System log stream for Deep Design Hubs — job runs, imports and errors.",
+    title: "Deep Design Dev: System logs",
+    description: "System log stream for Deep Design Dev — job runs, imports and errors.",
     keywords: "deep design hubs admin system logs"
   });
 

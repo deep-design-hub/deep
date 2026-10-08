@@ -6,6 +6,7 @@ import { Stars, StarPicker } from "../components/Stars";
 import PageStamp from "../components/PageStamp";
 import { getProject, relatedProjects, isForSale } from "../data/projects";
 import { SITE } from "../data/site";
+import { openRequestPanel } from "../data/requestPanel";
 import { listFor, addReview } from "../data/reviews";
 import { useAuth } from "../auth";
 import { usePageSEO, breadcrumbJsonLd, SITE_URL } from "../seo";
@@ -55,23 +56,23 @@ export default function Project() {
   const seo = useMemo(() => {
     if (!project) {
       return {
-        title: "Deep Design Hubs: Project not found — back to the gallery",
-        description: "That project could not be found. Browse the full Deep Design Hubs gallery of web, branding and design case studies.",
-        path: "/gallery",
-        noindex: true
+title: "Deep Design Dev: Project not found — browse the case studies",
+      description: "That project could not be found. Browse the full Deep Design Dev projects of web, branding and design case studies.",
+      path: "/projects",
+      noindex: true
       };
     }
     const sale = isForSale(project);
     return {
-      title: `Deep Design Hubs: ${project.title} — ${project.kind}${sale ? ` · $${project.price}` : " · case study"}`,
-      description: `${project.title} by Deep Design Hubs — ${project.def.slice(0, 150)}${project.def.length > 150 ? "…" : ""} Rated ${project.rating.avg.toFixed(1)}/5 from ${project.rating.count} reviews.${sale ? ` For sale at $${project.price} (${project.license}).` : ""}`,
-      keywords: [...project.tags, project.title.toLowerCase(), "deep design hubs", "abubakar musa"].join(", "),
+      title: `Deep Design Dev: ${project.title} — ${project.kind}${sale ? ` · $${project.price}` : " · case study"}`,
+      description: `${project.title} by Deep Design Dev — ${project.def.slice(0, 150)}${project.def.length > 150 ? "…" : ""} Rated ${project.rating.avg.toFixed(1)}/5 from ${project.rating.count} reviews.${sale ? ` For sale at $${project.price} (${project.license}).` : ""}`,
+      keywords: [...project.tags, project.title.toLowerCase(), "deep design dev", "abubakar musa"].join(", "),
       path: `/project/${project.slug}`,
       image: project.cover,
       jsonLd: [
         breadcrumbJsonLd([
           { name: "Home", path: "/" },
-          { name: "Projects", path: "/portfolio" },
+          { name: "Projects", path: "/projects" },
           { name: project.title, path: `/project/${project.slug}` }
         ]),
         {
@@ -82,7 +83,7 @@ export default function Project() {
           url: SITE_URL + `/project/${project.slug}`,
           image: project.images.map((im) => SITE_URL + im.src),
           author: { "@type": "Person", name: "Abubakar Musa", jobTitle: "Designer & Developer" },
-          publisher: { "@type": "Organization", name: "Deep Design Hubs" },
+          publisher: { "@type": "Organization", name: "Deep Design Dev" },
           datePublished: project.year,
           aggregateRating: {
             "@type": "AggregateRating",
@@ -115,7 +116,7 @@ export default function Project() {
 
   usePageSEO(seo);
 
-  if (!project) return <Navigate to="/gallery" replace />;
+  if (!project) return <Navigate to="/projects" replace />;
 
   const sale = isForSale(project);
   const image = project.images[idx] || project.images[0];
@@ -185,7 +186,7 @@ export default function Project() {
               <span className="material-symbols-rounded" aria-hidden="true">
                 chevron_right
               </span>
-              <Link to="/portfolio">Projects</Link>
+              <Link to="/projects">Projects</Link>
               <span className="material-symbols-rounded" aria-hidden="true">
                 chevron_right
               </span>
@@ -622,12 +623,12 @@ export default function Project() {
                             Live demo
                           </a>
                         )}
-                        <Link to="/contact" className="nh-btn nh-btn--accent">
+                        <button type="button" className="nh-btn nh-btn--accent" onClick={openRequestPanel}>
                           <span className="material-symbols-rounded" aria-hidden="true">
                               handyman
                           </span>
                           Build me one
-                        </Link>
+                        </button>
                       </div>
                       <span className="nh-buy__deliv">
                         <span className="material-symbols-rounded" aria-hidden="true">
@@ -672,7 +673,7 @@ export default function Project() {
                     </button>
                     <a
                       href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
-                        project.title + " — Deep Design Hubs"
+                        project.title + " — Deep Design Dev"
                       )}&url=${encodeURIComponent(SITE_URL + "/project/" + project.slug)}`}
                       target="_blank"
                       rel="noreferrer"

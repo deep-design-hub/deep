@@ -18,8 +18,8 @@ export default function AdminOrders() {
 
   usePageSEO({
     noindex: true,
-    title: "Deep Design Hubs: Admin orders",
-    description: "All purchases, payments and refunds in the Deep Design Hubs store.",
+    title: "Deep Design Dev: Admin orders",
+    description: "All purchases, payments and refunds in the Deep Design Dev store.",
     keywords: "deep design hubs admin orders"
   });
 

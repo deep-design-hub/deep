@@ -24,13 +24,16 @@ export default function Buy() {
 
   usePageSEO({
     title: project
-      ? `Deep Design Hubs: Buy ${project.title} — $${project.price}`
-      : "Deep Design Hubs: Buy",
+      ? `Deep Design Dev: Buy ${project.title} — $${project.price}`
+      : "Deep Design Dev: Buy",
     description: project
       ? `Buy ${project.title} for $${project.price}. ${project.license}. Instant delivery: ${project.delivery}.`
-      : "Purchase a Deep Design Hubs template or UI kit.",
+      : "Purchase a Deep Design Dev template or UI kit.",
     keywords: project ? `buy ${project.title.toLowerCase()}, ${project.tags ? project.tags.join(", ") : ""}` : "buy design templates",
     path: `/buy/${slug}`,
+    image: project
+      ? project.cover || (project.images && project.images[0] && project.images[0].src)
+      : "/assets/imgs/logo/meta.png",
     jsonLd: project
       ? [
           breadcrumbJsonLd([

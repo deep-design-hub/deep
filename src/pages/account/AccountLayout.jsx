@@ -68,7 +68,7 @@ export default function AccountLayout() {
 
       <aside className={"nh-adm__side" + (menuOpen ? " is-open" : "")}>
         <Link className="nh-adm__brand" to="/account">
-          <img src="/assets/imgs/logo/white-deep.png" alt="Deep Design Hubs" />
+          <img src="/assets/imgs/logo/white-deep.png" alt="Deep Design Dev" />
           <span className="nh-adm__brand-chip">My account</span>
         </Link>
 
@@ -102,14 +102,14 @@ export default function AccountLayout() {
 
         <div className="nh-adm__grp">Manage</div>
         <nav className="nh-adm__nav" aria-label="Manage">
-          <Link className="nh-dash__link" to="/gallery">
+          <Link className="nh-dash__link" to="/projects">
             <span className="material-symbols-rounded" aria-hidden="true">photo_library</span>
             <span className="nh-dash__label">Browse work</span>
           </Link>
-          <Link className="nh-dash__link" to="/contact">
-            <span className="material-symbols-rounded" aria-hidden="true">mail</span>
+          <button type="button" className="nh-dash__link" onClick={openRequestPanel}>
+            <span className="material-symbols-rounded" aria-hidden="true">send</span>
             <span className="nh-dash__label">Start a request</span>
-          </Link>
+          </button>
           {user.role === "admin" && (
             <Link className="nh-dash__link" to="/admin">
               <span className="material-symbols-rounded" aria-hidden="true">admin_panel_settings</span>
@@ -143,7 +143,7 @@ export default function AccountLayout() {
             </span>
             <span className="nh-adm__crumb-txt">
               <b>{crumb ? crumb.label : "My account"}</b>
-              <small>Deep Design Hubs · Customer area</small>
+              <small>Deep Design Dev · Customer area</small>
             </span>
           </div>
 

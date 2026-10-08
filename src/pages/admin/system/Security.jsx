@@ -9,7 +9,7 @@ import "../../../auth.css";
 export default function SystemSecurity() {
   usePageSEO({
     noindex: true,
-    title: "Deep Design Hubs: Security settings",
+    title: "Deep Design Dev: Security settings",
     description: "Session timeout, password rules and sign-in protections.",
     keywords: "deep design hubs admin security settings"
   });

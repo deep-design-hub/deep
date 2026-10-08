@@ -15,8 +15,8 @@ export default function Profile() {
 
   usePageSEO({
     noindex: true,
-    title: "Deep Design Hubs: Profile",
-    description: "Manage your Deep Design Hubs profile — avatar, name, email, phone and bio.",
+    title: "Deep Design Dev: Profile",
+    description: "Manage your Deep Design Dev profile — avatar, name, email, phone and bio.",
     keywords: "deep design hubs profile, account settings, avatar",
     path: "/account/profile",
     jsonLd: [breadcrumbJsonLd([

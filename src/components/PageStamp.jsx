@@ -7,7 +7,7 @@ import React from "react";
  *
  * textLength/lengthAdjust keep the phrase evenly spaced around the ring.
  */
-export default function PageStamp({ text = "Deep Design Hubs · Design · Code · Ship · ", icon = "auto_awesome", label }) {
+export default function PageStamp({ text = "Deep Design Dev · Design · Code · Ship · ", icon = "auto_awesome", label }) {
   const id = "nhStampPath";
   return (
     <div className="nh-stamp" aria-hidden="true">

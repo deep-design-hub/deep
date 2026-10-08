@@ -4,6 +4,7 @@
 import React, { useMemo } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../auth";
+import { openRequestPanel } from "../../data/requestPanel";
 import { requestsFor } from "../../data/requests";
 import { ordersFor } from "../../data/orders";
 import { usePageSEO, breadcrumbJsonLd } from "../../seo";
@@ -14,9 +15,9 @@ export default function Dashboard() {
 
   usePageSEO({
     noindex: true,
-    title: "Deep Design Hubs: Dashboard",
+    title: "Deep Design Dev: Dashboard",
     description:
-      "Your Deep Design Hubs dashboard — requests, orders and profile at a glance.",
+      "Your Deep Design Dev dashboard — requests, orders and profile at a glance.",
     keywords: "deep design hubs dashboard, orders, requests, account",
     path: "/account",
     jsonLd: [breadcrumbJsonLd([
@@ -52,12 +53,12 @@ export default function Dashboard() {
           </p>
         </div>
         <div className="nh-dash__headacts">
-          <Link to="/contact" className="nh-btn nh-btn--accent">
+          <button type="button" className="nh-btn nh-btn--accent" onClick={openRequestPanel}>
             <span className="material-symbols-rounded" aria-hidden="true">add_task</span>
             New request
-          </Link>
-          <Link to="/gallery" className="nh-btn nh-btn--outline">
-            <span className="material-symbols-rounded" aria-hidden="true">photo_library</span>
+          </button>
+          <Link to="/projects" className="nh-btn nh-btn--outline">
+            <span className="material-symbols-rounded" aria-hidden="true">dashboard</span>
             Browse work
           </Link>
         </div>
@@ -86,7 +87,7 @@ export default function Dashboard() {
           </h2>
           {reqs.length === 0 ? (
             <p className="nh-acct__empty">
-              No requests yet. <Link to="/contact">Send your first brief</Link> — you'll
+              No requests yet. <button type="button" className="nh-inln" onClick={openRequestPanel}>Send your first brief</button> — you'll
               get a fixed quote within 24 hours.
             </p>
           ) : (
@@ -121,7 +122,7 @@ export default function Dashboard() {
           </h2>
           {orders.length === 0 ? (
             <p className="nh-acct__empty">
-              No orders yet. <Link to="/gallery">Browse the shop</Link> for templates
+              No orders yet. <Link to="/projects">Browse the shop</Link> for templates
               and UI kits.
             </p>
           ) : (
